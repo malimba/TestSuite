@@ -1,0 +1,44 @@
+{% extends 'baselayout.html' %}
+{% load static %}
+
+{% block title %}
+Courses
+{% endblock title %}
+
+{% block navlinks %}
+    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+	    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+	    	<a class="nav-link" href="{% url 'users:Login' %}">Home</a>
+	    </li>
+         <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+	    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Courses</a>
+	    	<div class="dropdown-menu">
+	    		<a class="dropdown-item" href="#">All Courses</a>
+	    		<a class="dropdown-item" href="#">My Courses</a>
+	    	</div>
+		</li>
+	    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+        <a class="nav-link" href="#">Contact</a>
+    </li>
+{% endblock navlinks %}
+
+{% block body %}
+<div class="section full-height coursesOverView">
+	    	<div class="">
+	    		<div class="section">
+	    			<div class="container">
+	    				<div class="row">
+	    					<div class="col-12">
+								<header class="bg-lightblue p-4">
+									<h2>Courses</h2>
+								</header>
+								<h4 class="btn-primary">Course 1</h4>
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+{% endblock body %}
+
+

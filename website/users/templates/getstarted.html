@@ -1,0 +1,100 @@
+{% extends 'baselayout.html' %}
+{% load static %}
+
+{% block headlinks %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+<script defer type="text/javascript" src="{% static 'js/accountshandler.js' %}"></script>
+{% endblock headlinks %}
+{% block title %}Get Started{% endblock title %}
+
+{% block navlinks %}
+	<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+	    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="#">More Info</a>
+		</div>
+	</li>
+	<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+	    <a class="nav-link" href="#">Contact</a>
+	</li>
+{% endblock navlinks %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="cont">
+        <div class="form sign-in">
+            <form id="login-form" action="{% url 'users:Login' %}" method="post">
+                {% csrf_token %}
+                <h2>Welcome</h2>
+                <label>
+                    <span>Email</span>
+                    <input type="email" id="login-email"/>
+                    <small id="login-email-small"></small>
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" id="login-password"/>
+                    <small id="login-password-small"></small>
+                </label>
+                <p class="forgot-pass">Forgot password?</p>
+                <button type="submit" class="submit" id="login-submit">Sign In</button>
+            </form>
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+
+                    <h3>Don't have an account? Please Sign up!</h3>
+                </div>
+                <div class="img__text m--in">
+
+                    <h3>Already have an account? Just sign in!</h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <form id="signup-form" action="{% url 'users:Signup' %}" method="post">
+                    <h2>Create your Account</h2>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" id="signup-name" />
+                        <small id="signup-name-small"></small>
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" id="signup-email" />
+                        <small id="signup-email-small"></small>
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input type="password" id="signup-password" />
+                        <small id="signup-password-small"></small>
+                    </label>
+                    <label>
+                        <span>Confirm Password</span>
+                        <input type="password" id="signup-cpassword" />
+                        <small id="signup-cpassword-small"></small>
+                    </label>
+                    <button type="submit" class="submit" id="signup-submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.img__btn').addEventListener('click', function() {
+            document.querySelector('.cont').classList.toggle('s--signup');
+        });
+    </script>
+{% endblock body %}
