@@ -1,0 +1,21 @@
+{% extends 'baselayout.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block navlinks %}
+
+{% endblock navlinks %}
+
+{% block body %}
+<form method="post">
+  <textarea id="summernote" name="editordata"></textarea>
+</form>
+
+
+<script defer src="{% static 'js/functionality/page.min.js' %}" type="text/javascript"></script>
+<script defer src="{% static 'js/qHandlers/questionHandler.min.js' %}" type="text/javascript"></script>
+
+{% endblock body %}

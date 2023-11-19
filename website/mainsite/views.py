@@ -13,16 +13,9 @@ def welcome(request):
         return render(request, 'index.html')
 def Home(request):
     if request.method == 'GET':
-        return render(request, 'homepage.html')
+        return render(request, 'adminHome.html')
 
-def coursesView(request):
+#multiple choice handler
+def MCQuestionView(request):
     if request.method == 'GET':
-        return render(request, 'courses.html')
-
-def courseOverview(request):
-    if request.method == 'GET':
-        return render(request, 'courseOverview.html')
-#checkout view
-def checkout(request):
-    if request.method == 'GET':
-        return render(request, 'checkout.html')
+        return render(request, 'multipleChoice.html')

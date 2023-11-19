@@ -6,7 +6,5 @@ app_name = 'mainsite'
 urlpatterns = [
     path('', welcome, name='welcome'),
     path('home', Home, name='Home'),
-    path('courses', coursesView, name='courses'),
-    path('details', courseOverview, name='cdetails'),
-    path('checkout', checkout, name='checkout'),
+    path('lms/newmultquestions', MCQuestionView, name="newmultquest")
 ]

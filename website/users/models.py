@@ -55,16 +55,4 @@ class User(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
-#payment model
-class Payment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    #todo: subscription_type- based on subscriptions provided by company
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    payment_date = models.DateTimeField(auto_now_add=True)
-
-#subscription model
-class Subscription(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    start_date = models.DateTimeField(auto_now=True, null=False) #set it to auto now so once entry is made will update itself
-    end_date = models.DateTimeField()
 

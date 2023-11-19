@@ -1,0 +1,23 @@
+{% extends 'baselayout.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block navlinks %}
+
+{% endblock navlinks %}
+
+{% block body %}
+<!--Add content button-->
+<button class="add-content-button" onclick="openModal()">+</button>
+<!--question activities modal-->
+<div class="question-opt-modal" id="contentModal">
+    <div class="modal-option" onclick="CNMQ()">Multiple Choice Question</div>
+    <div class="modal-option" onclick="CNQ()">Input Question</div>
+</div>
+<script defer src="{% static 'js/functionality/page.min.js' %}" type="text/javascript"></script>
+{% endblock body %}
+
+

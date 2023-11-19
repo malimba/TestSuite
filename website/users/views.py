@@ -30,7 +30,9 @@ def Signup(request):
 #login view
 def Login(request):
     if request.method == 'GET':
-        return render(request, 'getstarted.html')
+        return render(request, 'loginPage.html')
+    if request.method == "POST":
+        return redirect('mainsite:Home')
     if is_ajax(request) and request.method == "POST":
         #for ajax response
         successful_json = {'value':True}

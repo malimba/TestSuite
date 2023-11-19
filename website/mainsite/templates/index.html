@@ -2,22 +2,9 @@
 {% load static %}
 
 {% block title %}Welcome{% endblock title %}
-{% block navlinks %}
- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-	    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-	    	<a class="nav-link" href="{% url 'users:Login' %}">Home</a>
-	    </li>
-        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
-	    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Courses</a>
-	    	<div class="dropdown-menu">
-	    		<a class="dropdown-item" href="{% url 'mainsite:courses' %}">All Courses</a>
-	    		<a class="dropdown-item" href="#">My Courses</a>
-	    	</div>
-		</li>
-	    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-        <a class="nav-link" href="#">Contact</a>
-    </li>
-{% endblock navlinks %}
+{% block navLinks %}
+
+{% endblock navLinks %}
 
 {% block body %}
         <div class="section full-height">
@@ -26,9 +13,12 @@
 	    			<div class="container">
 	    				<div class="row">
 	    					<div class="col-12">
-	    			<h1><span>R</span><span>a</span><span>b</span><span>o</span><span>n</span><span>n</span><span>i</span>
-	    			<span>S</span><span>e</span><span>r</span><span>i</span><span>e</span><span>s</span></h1>
+	    			<h1><span>T</span><span>e</span><span>s</span><span>t</span><span>S</span><span>u</span><span>i</span><span>t</span><span>e</span></h1>
+
 	    			<p>All in one suite to meet your educational need with our currated courses and lessons!</p>
+								<div class="">
+									<a href="{% url 'users:Login' %}"><button class="btn  accBtn" style="width: 100px;margin: 0 auto;display: block;">Login</button></a>
+								</div>
 	    					</div>
 	    				</div>
 	    			</div>
