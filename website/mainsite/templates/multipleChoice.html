@@ -1,6 +1,12 @@
 {% extends 'baselayout.html' %}
 {% load static %}
 
+
+{% block headlinks %}
+<link href="{% static 'css/question_test_styles.css' %}" rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/question_test_javascript.js' %}" ></script>
+{% endblock headlinks %}
+
 {% block title %}
 Home
 {% endblock title %}
@@ -10,9 +16,104 @@ Home
 {% endblock navlinks %}
 
 {% block body %}
-<form method="post">
-  <textarea id="summernote" name="editordata"></textarea>
-</form>
+
+<div id="summernoteContainer" class="editor-container">
+    <div class="header">
+        <div class="tabs">
+            <div class="tab" id="qTab" onclick="toggleTab(this)"> Question</div>
+            <div class="tab" id="dispTab" onclick="toggleTab(this)">Display</div>
+            <div class="tab" id="scoreTab" onclick="toggleTab(this)">Scoring</div>
+            <div class="tab" id="fldrTab" onclick="toggleTab(this)">Folder</div>
+            <div class="tab" id="jsonTab" onclick="toggleTab(this)">JSON</div>
+
+        </div>
+        <div class="saveBtnDiv">
+            <button class="btn btn-warning ">Save</button>
+        </div>
+    </div>
+    <div class="func-div active" id="qDiv">
+        <div class="sub_header-info">
+            <ul class="sub-header-ul">
+                <li class="sub-header-li"><b>Question</b></li>
+                <li class="sub-header-li">
+                    <input class="editable-text" type="checkbox" name="extrAns" id="extrAns">Extract Answer
+                </li>
+                <li class="sub-header-li">
+                    <input type="text" name="rprtName" id="rprtName" placeholder="Reporting Name">
+                </li>
+                <li class="sub-header-li">
+                    <input type="checkbox" name="sideBarEnbl" id="sideBarEnbl">Sidebar
+                </li>
+                <li class="sub-header-li">
+                    <input type="checkbox" name="hintEnbl" id="hintEnbl">Hint
+                </li>
+                <li class="sub-header-li">
+                    <input type="checkbox" name="fdbckEnbl" id="fdbckEnbl">Feedback
+                </li>
+                <li class="sub-header-li">
+                    <div class="switch-container">
+
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <label class="switch-label">Preview</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <form method="post" style="margin-top:20px;">
+                <textarea id="summernote" name="editordata"></textarea>
+            </form>
+        </div>
+        <div id="ansDiv">
+            <textarea class="ansSummernote"></textarea>
+            <div class="saveBtnDiv">
+                <button class="btn btn-warning ">Add Answer</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="func-div" id="dispDiv">
+        <!--        direction, wrapping, justify content, align items, margin-->
+        <label for="dispType"><small>Display Type</small></label>
+        <select id="dispType">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <label for="directionType"><small>Direction Type</small></label>
+        <select id="directionType">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <label for="wrappingType"><small>Display Type</small></label>
+        <select id="wrappingType">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <label for="justifyCntType"><small>Display Type</small></label>
+        <select id="justifyCntType">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <label for="algnItmsType"><small>Display Type</small></label>
+        <select id="algnItmsType">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <label for="marginType"><small>Display Type</small></label>
+        <select id="marginType">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <div id="questionPreview">
+        </div>
+    </div>
+    <div class="func-div" id="scoreDiv"></div>
+    <div class="func-div" id="fldrDiv"></div>
+    <div class="func-div" id="jsonDiv"></div>
+</div>
 
 
 <script defer src="{% static 'js/functionality/page.min.js' %}" type="text/javascript"></script>

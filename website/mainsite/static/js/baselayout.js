@@ -20,6 +20,11 @@
 
 	$(document).ready(function() {
 		$('body.hero-anime').removeClass('hero-anime');
+		document.getElementById('menu__toggle').addEventListener('click', function () {
+        document.getElementById('menu__box').classList.toggle('open');
+        document.getElementById('overlay').classList.toggle('active');
+        });
+
 	});
 
 	//Menu On Hover
@@ -47,4 +52,5 @@
 	});
 
   })(jQuery);
+
 
