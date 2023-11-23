@@ -4,7 +4,7 @@
 
 {% block headlinks %}
 <link href="{% static 'css/question_test_styles.css' %}" rel="stylesheet">
-<script type="text/javascript" src="{% static 'js/question_test_javascript.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/question_test_javascript.js' %}"></script>
 {% endblock headlinks %}
 
 {% block title %}
@@ -34,12 +34,16 @@ Home
     <div class="func-div active" id="qDiv">
         <div class="sub_header-info">
             <ul class="sub-header-ul">
-                <li class="sub-header-li"><b>Question</b></li>
+                <li class="sub-header-li"><h4>Question</h4></li>
                 <li class="sub-header-li">
-                    <input class="editable-text" type="checkbox" name="extrAns" id="extrAns">Extract Answer
+                    <input class="" type="checkbox" name="extrAns" id="extrAns">Extract Answer
                 </li>
                 <li class="sub-header-li">
-                    <input type="text" name="rprtName" id="rprtName" placeholder="Reporting Name">
+                    <div class="input-container">
+                        <textarea class="editable-text" id="rprtName" placeholder=""></textarea>
+                        <label class="label" for="rprtName">Reporting Name</label>
+                    </div>
+
                 </li>
                 <li class="sub-header-li">
                     <input type="checkbox" name="sideBarEnbl" id="sideBarEnbl">Sidebar
@@ -68,9 +72,49 @@ Home
             </form>
         </div>
         <div id="ansDiv">
+            <h6>Answers</h6>
+            <ul class="sub-header-ul">
+                <li class="sub-header-li">
+                    <input type="checkbox" name="sfC" id="sfC">Shuffle Choices
+                </li>
+                <li class="sub-header-li">
+                    <div class="input-container">
+                        <textarea class="editable-text" id="threshold" placeholder=""></textarea>%
+                        <label class="label" for="threshold">Threshold</label>
+                    </div>
+                </li>
+                <li class="sub-header-li">
+                    <div class="custom-dropdown">
+                        <button class="dropdown-toggle" id="customDropdownButton" aria-haspopup="true"
+                                aria-expanded="false">
+                            <span id="minSelectionText">Min Selection</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="customDropdownButton">
+                            <button class="dropdown-item" data-value="0">0</button>
+                            <!--more drop down items go here-->
+                        </div>
+                    </div>
+                </li>
+                <li class="sub-header-li">
+                    <div class="custom-dropdown">
+                        <button class="dropdown-toggle" id="customDropdownButton2" aria-haspopup="true"
+                                aria-expanded="false">
+                            <span id="maxSelectionText">Max Selection</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="customDropdownButton">
+                            <button class="dropdown-item" data-value="0">0</button>
+                            <!--more drop down items go here-->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="ansOptDiv">
+        </div>
+        <div id="ansInpDiv">
             <textarea class="ansSummernote"></textarea>
             <div class="saveBtnDiv">
-                <button class="btn btn-warning ">Add Answer</button>
+                <button class="btn btn-warning " onclick="addAnswer();">Add Answer</button>
             </div>
         </div>
     </div>

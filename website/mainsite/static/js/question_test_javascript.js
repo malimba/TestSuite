@@ -18,3 +18,101 @@ function toggleTab(tab) {
   // Add 'active' class to the target div
   targetDiv.classList.add('active');
 }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the dropdown button and menu
+        var dropdownButton = document.getElementById("customDropdownButton");
+        var dropdownMenu = document.querySelector(".custom-dropdown .dropdown-menu");
+
+        // Add click event listener to the dropdown button
+        dropdownButton.addEventListener("click", function () {
+            // Toggle the visibility of the dropdown menu
+            dropdownMenu.classList.toggle("show-options");
+        });
+
+        // Add click event listener to the document to close the dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!event.target.matches("#customDropdownButton")) {
+                dropdownMenu.classList.remove("show-options");
+            }
+        });
+    });
+
+//for min selection
+document.addEventListener('DOMContentLoaded', function () {
+    // Select the dropdown button and menu
+    const dropdownButton = document.getElementById('customDropdownButton');
+    const dropdownMenu = document.querySelector('.custom-dropdown .dropdown-menu');
+
+    // Select the span that displays the selected text
+    const minSelectionText = document.getElementById('minSelectionText');
+
+    // Add a click event listener to each dropdown item
+    dropdownMenu.addEventListener('click', function (event) {
+        // Check if a dropdown item was clicked
+        if (event.target.classList.contains('dropdown-item')) {
+            // Update the text in the span to the selected option's text
+            minSelectionText.textContent = event.target.textContent;
+
+            // Optionally, you can also retrieve the value of the selected option
+            const selectedValue = event.target.getAttribute('data-value');
+            console.log('Selected Value:', selectedValue);
+        }
+    });
+});
+//for max selection
+document.addEventListener('DOMContentLoaded', function () {
+    // Select the dropdown button and menu
+    const dropdownButton = document.getElementById('customDropdownButton2');
+    const dropdownMenu = document.querySelector('.custom-dropdown .dropdown-menu');
+
+    // Select the span that displays the selected text
+    const minSelectionText = document.getElementById('maxSelectionText');
+
+    // Add a click event listener to each dropdown item
+    dropdownMenu.addEventListener('click', function (event) {
+        // Check if a dropdown item was clicked
+        if (event.target.classList.contains('dropdown-item')) {
+            // Update the text in the span to the selected option's text
+            minSelectionText.textContent = event.target.textContent;
+
+            // Optionally, you can also retrieve the value of the selected option
+            const selectedValue = event.target.getAttribute('data-value');
+            console.log('Selected Value:', selectedValue);
+        }
+    });
+});
+
+
+//for saveBtn functionality
+//function to generate UUID
+function generateUUID(){
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+        var r = (Math.random() * 16) | 0,
+        v = c === 'x' ? r: (r& 0x3) |0x8;
+        return v.toString(16);
+    });
+}
+
+// Function to retrieve content of ansSummernote and create a non-editable div
+function addAnswer() {
+    //generate unique id for each ansOpt
+    const ansOptId= generateUUID();
+    //HTML  for ansOpt
+    const ansOptHTML = `
+     <div class="ansOpt" id="${ansOptId}">
+     <!--ansopt content>
+     <span class="deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑️</span>
+    `;
+    //append ansOPt to ansOptDiv
+    document.getElementById('ansOptDiv').insertAdjacentHTML('beforeend', ansOptHTML);
+}
+
+//function to delete ansOpt element
+function deleteAnsOpt(deleteButton){
+    const ansOptId = deleteButton.getAttribute('data-ans-opt-id');
+    const ansOptElement = document.getElementById(ansOptId);
+
+    //remove ansOpt element  from DOM
+    ansOptElement.remove();
+}

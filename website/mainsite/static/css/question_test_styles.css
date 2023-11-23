@@ -110,8 +110,8 @@
     passing: 0;
 }
 .sub-header-li{
-    display:inline;
-    margin-right: 5px;
+    display:inline-block;
+    margin-right: 10px;
 }
 
 /*for navbar overshadow*/
@@ -190,52 +190,132 @@
     }
 
 /* set all respective div display to none  with additional styling for active*/
-/*qDiv dispDiv scoreDiv fldrDiv jsonDiv*/
-/*
-#qDiv{
-    display: none;
-}
-
-#qDiv.active{
-    display: block;
-}
-
-#dispDiv{
-    display:none;
-}
-
-#dispDiv.active{
-    display: block;
-}
-
-#scoreDiv{
-    display:none;
-}
-
-#scoreDiv.active{
-    display:block;
-}
-
-#fldrDiv{
-    display: none;
-}
-
-#fldrDiv.active{
-    display: block;
-}
-
-#jsonDiv{
-    display: none;
-}
-#jsonDiv.active{
-    display: block;
-}
-*/
-
 .func-div {
   display: none;
 }
 
 .func-div.active {
   display: block;
+}
+
+/*style for editable text area*/
+.input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .editable-text {
+            width: 100%;
+            max-width: 120px;
+            height: 100%;
+            max-height: 30px;
+            border: none;
+            border-bottom: 2px solid #333; /* Bottom line styling */
+            outline: none;
+            font-size: 16px;
+            padding: 5px;
+            transition: border-bottom-color 0.3s ease, font-size 0.3s ease;
+            overflow: hidden;
+            resize:none;
+        }
+
+        .editable-text:focus {
+            border-bottom-color: #FFB300; /* Highlight color on focus */
+            font-size: 16px; /* Smaller font size on focus */
+        }
+
+        .label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+            color: #777;
+            pointer-events: none; /* Make the label not clickable */
+            transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+        }
+
+        .editable-text:focus + .label,
+        .editable-text:not(:placeholder-shown) + .label {
+            top: -20px; /* Move the label up when input is focused or not empty */
+            font-size: 14px;
+            color: #FFB300;
+        }
+
+
+/*styling for dropdowns*/
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.custom-dropdown .dropdown-toggle {
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.custom-dropdown .dropdown-toggle:focus {
+    outline: none;
+}
+
+.custom-dropdown.show .dropdown-toggle {
+    border-bottom: 2px solid #FFB300;
+}
+
+.custom-dropdown .dropdown-item {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-dropdown .dropdown-item:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+.custom-dropdown .dropdown-menu.show-options {
+    display: block;
+}
+
+/* Style for ansOpt */
+.ansOpt {
+  border: 1px solid #ddd; /* Add a border for separation */
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Style for ansOpt content */
+.ansOptContent {
+  color: #333; /* Text color for better visibility */
+}
+
+/* Style for deleteIcon */
+.deleteIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #dc3545; /* Red color for delete icon */
+}
+
+/* Add hover effect for deleteIcon */
+.deleteIcon:hover {
+  color: #c82333; /* Darker red on hover */
 }
