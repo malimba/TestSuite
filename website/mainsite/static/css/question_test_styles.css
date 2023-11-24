@@ -306,16 +306,7 @@
   color: #333; /* Text color for better visibility */
 }
 
-/* Style for deleteIcon */
-.deleteIcon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-  color: #dc3545; /* Red color for delete icon */
+.deleteAnsOpt{
+    cursor: pointer;
 }
 
-/* Add hover effect for deleteIcon */
-.deleteIcon:hover {
-  color: #c82333; /* Darker red on hover */
-}

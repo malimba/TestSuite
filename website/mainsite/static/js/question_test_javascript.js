@@ -95,14 +95,30 @@ function generateUUID(){
 }
 
 // Function to retrieve content of ansSummernote and create a non-editable div
+//globals
+const ansCount = 0;
 function addAnswer() {
     //generate unique id for each ansOpt
     const ansOptId= generateUUID();
     //HTML  for ansOpt
+    //logic to determine answer number
+    const ansOptElements = document.querySelectorAll('.ansOpt').length;
+    const cnt = ansOptElements + 1; // Increment the count
+    //logic to retrieve answer content
+    var ansSummernoteContent = document.querySelector('.ansSummernote').value;
+
     const ansOptHTML = `
      <div class="ansOpt" id="${ansOptId}">
-     <!--ansopt content>
-     <span class="deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑️</span>
+      ${ansSummernoteContent}
+      <div class="switch-container">
+                        <label class="switch">
+                            <input type="checkbox" class='question-validity' ansOptCheck-ref-id="${ansOptId}" onchange="validateQuestion('${ansOptId}');">
+                            <span class="slider" data-ans-isCorrect-id="${ansOptId}"></span>
+                        </label>
+                        <label class="switch-label">Incorrect</label>
+      </div>
+      <span class="ansNumber">${cnt}</span>
+     <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑Delete</button>
     `;
     //append ansOPt to ansOptDiv
     document.getElementById('ansOptDiv').insertAdjacentHTML('beforeend', ansOptHTML);
@@ -115,4 +131,35 @@ function deleteAnsOpt(deleteButton){
 
     //remove ansOpt element  from DOM
     ansOptElement.remove();
+};
+
+//function to set question to correct or incorrect
+function validateQuestion(ansOptContainerId) {
+    // Get the parent container of the current slider (adjust the selector accordingly)
+    const ansOptContainer = document.getElementById(ansOptContainerId);
+    const ansOPTDIV = document.getElementById('ansOptDiv');
+
+    if (ansOptContainer) {
+        //get current  check box
+        const checkboxSelf = ansOptContainer.querySelector(`.question-validity[ansoptcheck-ref-id="${ansOptContainerId}"]`);
+        // Get all sliders within the ansOptDiv
+        const checkboxes = ansOPTDIV.querySelectorAll('.switch-container input[type="checkbox"]');
+
+        // Iterate through all sliders
+        checkboxes.forEach(checkbx => {
+            // Uncheck all sliders except the current one
+            if (checkbx !== checkboxSelf) {
+                checkbx.checked = false;
+                checkbx.parentElement.parentElement.querySelector('.switch-label').innerText = 'Incorrect';
+            }
+
+            // Remove 'crctAns' class from all sliders
+            checkbx.classList.remove('crctAns');
+        });
+
+        // Add the 'crctAns' class to the current slider
+        checkboxSelf.classList.add('crctAns');
+        //change label text to Correct
+        checkboxSelf.parentElement.parentElement.querySelector('.switch-label').innerText = 'Correct'
+    }
 }
