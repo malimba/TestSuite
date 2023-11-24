@@ -1,13 +1,16 @@
 {% extends 'baselayout.html' %}
 {% load static %}
 
+{% block headlinks %}
+<link href="{% static 'css/baselayout.css' %}" rel="stylesheet">
+<script src="{% static 'js/baselayout.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/question_test_styles.css' %}" rel="stylesheet">
+<script type="text/javascript" src="{% static 'js/question_test_javascript.js' %}"></script>
+{% endblock headlinks %}
 {% block title %}
 Home
 {% endblock title %}
 
-{% block navlinks %}
-
-{% endblock navlinks %}
 
 {% block body %}
 <!--Add content button-->
