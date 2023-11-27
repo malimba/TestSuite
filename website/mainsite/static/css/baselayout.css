@@ -1,12 +1,12 @@
 
 
-/* Please ❤ this if you like it! */
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
 
-/* #Primary
-================================================== */
+
+
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -27,8 +27,8 @@ body{
 	color: #fff;
 	background-color: #8167a9;
 }
-/* #Primary style
-================================================== */
+
+
 h1{
 	font-size: 48px;
 	line-height: 1.2;
@@ -170,8 +170,7 @@ body.hero-anime #switch{
 }
 
 
-/* #Page Navigations With themes
-================================================== *//**/
+
 .accBtn{
     background:#FFB300;
     border: 1px solid #ffff;
@@ -200,7 +199,7 @@ a:hover{
     text-decoration:none;
 }
 
-/*style for nav bar*/
+
 #menu__toggle {
   opacity: 0;
 }
@@ -225,7 +224,7 @@ a:hover{
   width: 26px;
   height: 26px;
   cursor: pointer;
-  z-index: 1001; /*higher z-index to help show*/
+  z-index: 1001;
 }
 .menu__btn > span,
 .menu__btn > span::before,
