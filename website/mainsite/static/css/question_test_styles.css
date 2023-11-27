@@ -313,3 +313,10 @@
     cursor: pointer;
 }
 
+#sBDivSummernote, #hintTitle, #hintDivSummernote, #fdbackDivSummernote{
+    display:none;
+}
+
+.visibleDiv{
+    display: block;
+}

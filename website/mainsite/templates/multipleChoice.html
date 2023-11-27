@@ -46,13 +46,13 @@ Home
 
                 </li>
                 <li class="sub-header-li">
-                    <input type="checkbox" name="sideBarEnbl" id="sideBarEnbl">Sidebar
+                    <input type="checkbox" name="sideBarEnbl" id="sideBarEnbl" onchange="showDiv('sBDiv');">Sidebar
                 </li>
                 <li class="sub-header-li">
-                    <input type="checkbox" name="hintEnbl" id="hintEnbl">Hint
+                    <input type="checkbox" name="hintEnbl" id="hintEnbl" onchange="showDiv('hintDiv');">Hint
                 </li>
                 <li class="sub-header-li">
-                    <input type="checkbox" name="fdbckEnbl" id="fdbckEnbl">Feedback
+                    <input type="checkbox" name="fdbckEnbl" id="fdbckEnbl" onchange="showDiv('fdbackDiv');">Feedback
                 </li>
                 <li class="sub-header-li">
                     <div class="switch-container">
@@ -70,9 +70,6 @@ Home
             <form method="post" style="margin-top:20px;">
                 <textarea id="summernote" name="editordata"></textarea>
             </form>
-        </div>
-        <div id="sBDiv">
-
         </div>
         <div id="ansDiv">
             <h6>Answers</h6>
@@ -111,6 +108,17 @@ Home
                     </div>
                 </li>
             </ul>
+        </div>
+        <div id="sBDiv">
+            <h4>Sidebar</h4>
+            <textarea name="sBDivSummernote" id="sBDivSummernote"></textarea>
+        </div>
+        <div id="hintDiv">
+            <h4>Hint</h4>
+            <input type="text" id="hintTitle" name="hintTitle" placeholder="Title"><textarea name="hintDivSummernote" id="hintDivSummernote"></textarea>
+        </div><div id="fdbackDiv">
+            <h4>Feedback</h4>
+            <textarea name="fdbackDivSummernote" id="fdbackDivSummernote"></textarea>
         </div>
         <div id="ansOptDiv">
         </div>
