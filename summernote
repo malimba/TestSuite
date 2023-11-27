@@ -1,0 +1,199 @@
+[main 71b7b38] added rich text editoer=
+ Committer: malimba <malimba@pop-os.localdomain>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 195 files changed, 44616 insertions(+), 455 deletions(-)
+ create mode 100644 .idea/.gitignore
+ create mode 100644 .idea/TestSuite.iml
+ create mode 100644 .idea/inspectionProfiles/profiles_settings.xml
+ create mode 100644 .idea/misc.xml
+ create mode 100644 .idea/modules.xml
+ create mode 100644 .idea/vcs.xml
+ rewrite website/mainsite/__pycache__/models.cpython-310.pyc (98%)
+ rewrite website/mainsite/__pycache__/urls.cpython-310.pyc (92%)
+ rewrite website/mainsite/__pycache__/views.cpython-310.pyc (81%)
+ create mode 100644 website/mainsite/static/css/lBase.css
+ create mode 100644 website/mainsite/static/images/loginBack.png
+ create mode 100644 website/mainsite/static/js/functionality/page.min.js
+ create mode 100644 website/mainsite/static/js/qHandlers/questionHandler.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/font/summernote.eot
+ create mode 100644 website/mainsite/static/utilities/summernote/font/summernote.ttf
+ create mode 100644 website/mainsite/static/utilities/summernote/font/summernote.woff
+ create mode 100644 website/mainsite/static/utilities/summernote/font/summernote.woff2
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ar-AR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ar-AR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ar-AR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-az-AZ.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-az-AZ.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-az-AZ.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-bg-BG.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-bg-BG.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-bg-BG.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ca-ES.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ca-ES.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ca-ES.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-cs-CZ.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-cs-CZ.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-cs-CZ.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-da-DK.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-da-DK.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-da-DK.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-de-DE.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-de-DE.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-de-DE.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-el-GR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-el-GR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-el-GR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-es-ES.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-es-ES.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-es-ES.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-es-EU.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-es-EU.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-es-EU.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fa-IR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fa-IR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fa-IR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fi-FI.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fi-FI.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fi-FI.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fr-FR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fr-FR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-fr-FR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-gl-ES.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-gl-ES.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-gl-ES.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-he-IL.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-he-IL.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-he-IL.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-hr-HR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-hr-HR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-hr-HR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-hu-HU.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-hu-HU.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-hu-HU.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-id-ID.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-id-ID.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-id-ID.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-it-IT.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-it-IT.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-it-IT.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ja-JP.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ja-JP.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ja-JP.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ko-KR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ko-KR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ko-KR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-lt-LT.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-lt-LT.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-lt-LT.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-lt-LV.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-lt-LV.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-lt-LV.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-mn-MN.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-mn-MN.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-mn-MN.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-nb-NO.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-nb-NO.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-nb-NO.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-nl-NL.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-nl-NL.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-nl-NL.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pl-PL.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pl-PL.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pl-PL.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pt-BR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pt-BR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pt-BR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pt-PT.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pt-PT.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-pt-PT.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ro-RO.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ro-RO.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ro-RO.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ru-RU.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ru-RU.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ru-RU.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sk-SK.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sk-SK.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sk-SK.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sl-SI.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sl-SI.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sl-SI.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sr-RS-Latin.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sr-RS-Latin.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sr-RS-Latin.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sr-RS.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sr-RS.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sr-RS.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sv-SE.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sv-SE.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-sv-SE.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ta-IN.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ta-IN.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-ta-IN.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-th-TH.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-th-TH.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-th-TH.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-tr-TR.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-tr-TR.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-tr-TR.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-uk-UA.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-uk-UA.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-uk-UA.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-uz-UZ.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-uz-UZ.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-uz-UZ.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-vi-VN.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-vi-VN.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-vi-VN.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-zh-CN.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-zh-CN.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-zh-CN.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-zh-TW.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-zh-TW.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/lang/summernote-zh-TW.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/plugin/databasic/summernote-ext-databasic.css
+ create mode 100644 website/mainsite/static/utilities/summernote/plugin/databasic/summernote-ext-databasic.js
+ create mode 100644 website/mainsite/static/utilities/summernote/plugin/hello/summernote-ext-hello.js
+ create mode 100644 website/mainsite/static/utilities/summernote/plugin/specialchars/summernote-ext-specialchars.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.css
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.js.map
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.min.css
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-bs4.min.js.map
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.css
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.js.map
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.min.css
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote-lite.min.js.map
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.css
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.js.map
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.min.css
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.min.js
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.min.js.LICENSE.txt
+ create mode 100644 website/mainsite/static/utilities/summernote/summernote.min.js.map
+ create mode 100644 website/mainsite/templates/adminHome.html
+ rewrite website/mainsite/templates/baselayout.html (78%)
+ delete mode 100644 website/mainsite/templates/checkout.html
+ delete mode 100644 website/mainsite/templates/courseOverview.html
+ delete mode 100644 website/mainsite/templates/courses.html
+ delete mode 100644 website/mainsite/templates/homepage.html
+ create mode 100644 website/mainsite/templates/loginPage.html
+ create mode 100644 website/mainsite/templates/multipleChoice.html
+ rewrite website/users/__pycache__/models.cpython-310.pyc (78%)
+ rewrite website/users/__pycache__/views.cpython-310.pyc (65%)
