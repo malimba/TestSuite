@@ -73,7 +73,7 @@ const ansCount = 0;
 function addAnswer() {
     const ansOptId= generateUUID();
     const ansOptElements = document.querySelectorAll('.ansOpt').length;
-
+    const cnt = ansOptElements + 1;
     var ansSummernoteContent = document.querySelector('.ansSummernote').value;
 
     const ansOptHTML = `
@@ -90,6 +90,8 @@ function addAnswer() {
      <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑Delete</button>
     `;
     document.getElementById('ansOptDiv').insertAdjacentHTML('beforeend', ansOptHTML);
+
+    previewConstructor();
 }
 
 function deleteAnsOpt(deleteButton){
@@ -119,4 +121,10 @@ function validateQuestion(ansOptContainerId) {
         checkboxSelf.classList.add('crctAns');
         checkboxSelf.parentElement.parentElement.querySelector('.switch-label').innerText = 'Correct'
     }
+}
+
+function showDiv(div_){
+    console.log(div_);
+    const cdiv = document.getElementById(`${div_}`);
+    cdiv.classList.toggle('active');
 }

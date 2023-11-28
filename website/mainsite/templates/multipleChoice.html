@@ -5,6 +5,7 @@
 {% block headlinks %}
 <link href="{% static 'css/question_test_styles.css' %}" rel="stylesheet">
 <script type="text/javascript" src="{% static 'js/question_test_javascript.js' %}"></script>
+
 {% endblock headlinks %}
 
 {% block title %}
@@ -68,8 +69,23 @@ Home
         </div>
         <div>
             <form method="post" style="margin-top:20px;">
-                <textarea id="summernote" name="editordata"></textarea>
+                <textarea id="qSummernote" name="editordata"></textarea>
             </form>
+        </div>
+
+        <div id="sBDiv" class="hDiv">
+            <h4>Sidebar</h4>
+            <textarea name="sBDivSummernote" id="sBDivSummernote"></textarea>
+        </div>
+        <div id="hintDiv" class="hDiv">
+            <h4>Hint</h4>
+            <input type="text" id="hintTitle" name="hintTitle" placeholder="Title"><textarea name="hintDivSummernote" id="hintDivSummernote"></textarea>
+        </div>
+        <div id="fdbackDiv" class="hDiv">
+            <h4>Feedback</h4>
+            <textarea name="fdbackDivSummernote" id="fdbackDivSummernote"></textarea>
+        </div>
+        <div id="ansOptDiv">
         </div>
         <div id="ansDiv">
             <h6>Answers</h6>
@@ -109,23 +125,19 @@ Home
                 </li>
             </ul>
         </div>
-        <div id="sBDiv">
-            <h4>Sidebar</h4>
-            <textarea name="sBDivSummernote" id="sBDivSummernote"></textarea>
-        </div>
-        <div id="hintDiv">
-            <h4>Hint</h4>
-            <input type="text" id="hintTitle" name="hintTitle" placeholder="Title"><textarea name="hintDivSummernote" id="hintDivSummernote"></textarea>
-        </div><div id="fdbackDiv">
-            <h4>Feedback</h4>
-            <textarea name="fdbackDivSummernote" id="fdbackDivSummernote"></textarea>
-        </div>
-        <div id="ansOptDiv">
-        </div>
         <div id="ansInpDiv">
             <textarea class="ansSummernote"></textarea>
             <div class="saveBtnDiv">
                 <button class="btn btn-warning " onclick="addAnswer();">Add Answer</button>
+            </div>
+        </div>
+        <div id="previewDiv">
+            <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
+            <div id="previewQTitleDiv">
+                <h4 id="previewQTitle"></h4>
+            </div>
+            <div id="previewAOptsDiv">
+
             </div>
         </div>
     </div>
@@ -134,33 +146,48 @@ Home
         <!--        direction, wrapping, justify content, align items, margin-->
         <label for="dispType"><small>Display Type</small></label>
         <select id="dispType">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="flex">Flex</option>
+            <option value="dropdwon">Dropdown</option>
+            <option value="grid">Grid</option>
         </select>
         <label for="directionType"><small>Direction Type</small></label>
         <select id="directionType">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="column">Column</option>
+            <option value="row">Row</option>
         </select>
-        <label for="wrappingType"><small>Display Type</small></label>
+        <label for="wrappingType"><small>Wrapping</small></label>
         <select id="wrappingType">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="wrap">Wrap</option>
+            <option value="nowrap">No wrap</option>
         </select>
-        <label for="justifyCntType"><small>Display Type</small></label>
+        <label for="justifyCntType"><small>Justify Content</small></label>
         <select id="justifyCntType">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="start">Start</option>
+            <option value="end">End</option>
+            <option value="center">Center</option>
+            <option value="spBtw">Space Between</option>
+            <option value="spArnd">Space Around</option>
+            <option value="spEvn">Space Evenly</option>
         </select>
-        <label for="algnItmsType"><small>Display Type</small></label>
+        <label for="algnItmsType"><small>Align Items</small></label>
         <select id="algnItmsType">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="start">Start</option>
+            <option value="end">End</option>
+            <option value="center">Center</option>
+            <option value="stretch">Stretch</option>
+            <option value="baseline">Baseline</option>
         </select>
-        <label for="marginType"><small>Display Type</small></label>
+        <label for="marginType"><small>Margin</small></label>
         <select id="marginType">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="none">None</option>
+            <option value="5">5px</option>
+            <option value="10">10px</option>
+            <option value="15">15px</option>
+            <option value="20">20px</option>
+            <option value="25">25px</option>
+            <option value="30">30px</option>
+            <option value="35">35px</option>
+            <option value="40">40px</option>
         </select>
         <div id="questionPreview">
         </div>

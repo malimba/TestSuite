@@ -313,10 +313,14 @@
     cursor: pointer;
 }
 
-#sBDivSummernote, #hintTitle, #hintDivSummernote, #fdbackDivSummernote{
+.hDiv{
     display:none;
 }
 
-.visibleDiv{
-    display: block;
+.hDiv.active{
+    display:block;
+}
+
+.default-answer-properties{
+
 }
