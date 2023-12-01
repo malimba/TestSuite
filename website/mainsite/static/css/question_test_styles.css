@@ -324,3 +324,16 @@
 .default-answer-properties{
 
 }
+#previewDiv{
+    display:none;
+}
+#previewDiv.active{
+    display: block;
+}
+
+.inactive-disp-elem{
+    display:none;
+}
+.active-disp-elem{
+    display:block;
+}

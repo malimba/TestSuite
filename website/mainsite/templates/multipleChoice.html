@@ -59,7 +59,7 @@ Home
                     <div class="switch-container">
 
                         <label class="switch">
-                            <input type="checkbox">
+                            <input type="checkbox" onchange="togglePreviewVisibility();">
                             <span class="slider"></span>
                         </label>
                         <label class="switch-label">Preview</label>
@@ -132,23 +132,14 @@ Home
                 <button class="btn btn-warning " onclick="addAnswer();">Add Answer</button>
             </div>
         </div>
-        <div id="previewDiv">
-            <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
-            <div id="previewQTitleDiv">
-                <h4 id="previewQTitle"></h4>
-            </div>
-            <div id="previewAOptsDiv">
-
-            </div>
-        </div>
     </div>
 
     <div class="func-div" id="dispDiv">
         <!--        direction, wrapping, justify content, align items, margin-->
         <label for="dispType"><small>Display Type</small></label>
-        <select id="dispType">
+        <select id="dispType" >
             <option value="flex">Flex</option>
-            <option value="dropdwon">Dropdown</option>
+            <option value="dropdown">Dropdown</option>
             <option value="grid">Grid</option>
         </select>
         <label for="directionType"><small>Direction Type</small></label>
@@ -158,17 +149,17 @@ Home
         </select>
         <label for="wrappingType"><small>Wrapping</small></label>
         <select id="wrappingType">
-            <option value="wrap">Wrap</option>
+            <option value="normal">Wrap</option>
             <option value="nowrap">No wrap</option>
         </select>
         <label for="justifyCntType"><small>Justify Content</small></label>
         <select id="justifyCntType">
-            <option value="start">Start</option>
-            <option value="end">End</option>
+            <option value="flex-start">Start</option>
+            <option value="flex-end">End</option>
             <option value="center">Center</option>
-            <option value="spBtw">Space Between</option>
-            <option value="spArnd">Space Around</option>
-            <option value="spEvn">Space Evenly</option>
+            <option value="space-between">Space Between</option>
+            <option value="space-around">Space Around</option>
+            <option value="space-evenly">Space Evenly</option>
         </select>
         <label for="algnItmsType"><small>Align Items</small></label>
         <select id="algnItmsType">
@@ -190,12 +181,19 @@ Home
             <option value="35">35px</option>
             <option value="40">40px</option>
         </select>
-        <div id="questionPreview">
-        </div>
     </div>
     <div class="func-div" id="scoreDiv"></div>
     <div class="func-div" id="fldrDiv"></div>
     <div class="func-div" id="jsonDiv"></div>
+    <div id="previewDiv">
+            <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
+            <div id="previewQTitleDiv">
+                <h4 id="previewQTitle"></h4>
+            </div>
+            <div id="previewAOptsDiv">
+
+            </div>
+        </div>
 </div>
 
 
