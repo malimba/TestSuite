@@ -277,3 +277,19 @@ a:hover{
   background-color: #CFD8DC;
 }
 
+.grid-container {
+    display: flex;
+}
+
+.textarea-container {
+    flex: 2;
+}
+
+.example-container {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.grid-child-e{
+    flex:1;
+}

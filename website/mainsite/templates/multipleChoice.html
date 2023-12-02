@@ -23,6 +23,7 @@ Home
         <div class="tabs">
             <div class="tab" id="qTab" onclick="toggleTab(this)"> Question</div>
             <div class="tab" id="dispTab" onclick="toggleTab(this)">Display</div>
+            <div class="tab" id="pasteTab" onclick="toggleTab(this)">Paste</div>
             <div class="tab" id="scoreTab" onclick="toggleTab(this)">Scoring</div>
             <div class="tab" id="fldrTab" onclick="toggleTab(this)">Folder</div>
             <div class="tab" id="jsonTab" onclick="toggleTab(this)">JSON</div>
@@ -79,7 +80,8 @@ Home
         </div>
         <div id="hintDiv" class="hDiv">
             <h4>Hint</h4>
-            <input type="text" id="hintTitle" name="hintTitle" placeholder="Title"><textarea name="hintDivSummernote" id="hintDivSummernote"></textarea>
+            <input type="text" id="hintTitle" name="hintTitle" placeholder="Title"><textarea name="hintDivSummernote"
+                                                                                             id="hintDivSummernote"></textarea>
         </div>
         <div id="fdbackDiv" class="hDiv">
             <h4>Feedback</h4>
@@ -137,7 +139,7 @@ Home
     <div class="func-div" id="dispDiv">
         <!--        direction, wrapping, justify content, align items, margin-->
         <label for="dispType"><small>Display Type</small></label>
-        <select id="dispType" >
+        <select id="dispType">
             <option value="flex">Flex</option>
             <option value="dropdown">Dropdown</option>
             <option value="grid">Grid</option>
@@ -182,18 +184,78 @@ Home
             <option value="40">40px</option>
         </select>
     </div>
-    <div class="func-div" id="scoreDiv"></div>
-    <div class="func-div" id="fldrDiv"></div>
-    <div class="func-div" id="jsonDiv"></div>
-    <div id="previewDiv">
-            <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
-            <div id="previewQTitleDiv">
-                <h4 id="previewQTitle"></h4>
+    <div class="func-div " id="pasteDiv">
+        <div class="grid-container">
+            <div class="grid-child textarea-container">
+            <textarea name="pastQuestionT" id="pasteQuestionT" cols="30" rows="10" class="pasteQT"
+                      placeholder="Paste or quickly write your question. Leave blank line after the question"></textarea>
             </div>
-            <div id="previewAOptsDiv">
-
+            <div class="grid-child example-container">
+                <div style="padding: 20px; border: 1px solid rgb(221, 221, 221); background: rgb(238, 238, 238); margin-bottom: 29px;">
+                    <div style="display: flex; align-items: center;">
+                        <i aria-hidden="true" class="v-icon material-icons theme--light">short_text</i>
+                        <div class="subheading">Example</div>
+                    </div>
+                    <div style="color: grey; font-style: italic; margin-bottom: 25px;">
+                        What color is a banana?<br><br> Black<br> White<br> Blue<br> Yellow
+                    </div>
+                    <button type="button" class="v-btn v-btn--small theme--light" style="margin-left: 0px;"
+                            onclick="useExample();">
+                        <div class="v-btn__content">Use this example</div>
+                    </button>
+                </div>
             </div>
         </div>
+        <button class="btn btn-warning" onclick="generateQPaste();">PASTE</button>
+    </div>
+
+    <div class="func-div" id="scoreDiv">
+        <h4>Question's Point</h4>
+        <b><i>User's question score is multiplied by the question point to affect the exam overall score</i></b>
+        <div class="grid-container">
+            <div class="input-container grid-child-e">
+                <textarea class="editable-text" id="pnt" placeholder=""></textarea>
+                <label class="label" for="pnt">Point</label>
+            </div>
+            <div class="input-container grid-child-e">
+                <textarea class="editable-text" id="negMult" placeholder="" value="-0"></textarea>
+                <label class="label" for="negMult">Negative Multiplier</label>
+            </div>
+        </div>
+    </div>
+    <div class="func-div" id="fldrDiv">
+        <div id="folderDiv" class="input-container">
+            <select class="dropdown-elem" id="fldrDrpDwn" name="fldrDrpDwn">
+            </select>
+            <label class="label" for="fldrDrpDwn">Folder</label>
+        </div>
+
+        <div id="tagDiv">
+            <div id="addedTags"><i id="aTag" class="fas fa-tag"></i></div>
+            <div id="tagDropDownDiv" class="input-container">
+                <select class="dropdown-elem" id="tagDrpDwn" name="tagDrpDwn">
+                </select>
+                <label class="label" for="tagDrpDwn">Tag Name</label>
+            </div>
+            <div class="input-container" style="">
+                <textarea class="editable-text" id="tagValue" name="tagValue" placeholder=""></textarea>
+                <label class="label" for="tagValue">Tag Value</label>
+            </div>
+        </div>
+        <div id="addTagDiv">
+            <button class="btn btn-warning"  onclick="addTag();">+Add Tag</button>
+        </div>
+    </div>
+    <div class="func-div" id="jsonDiv"></div>
+    <div class="func-div" id="previewDiv">
+        <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
+        <div id="previewQTitleDiv">
+            <h4 id="previewQTitle"></h4>
+        </div>
+        <div id="previewAOptsDiv">
+
+        </div>
+    </div>
 </div>
 
 

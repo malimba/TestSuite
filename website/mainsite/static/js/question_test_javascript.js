@@ -393,3 +393,73 @@ function updateGridState(){
         checkbox.parentElement.parentElement.style.gridColumnGap = `${columnGap}`;
     });
 }
+function useExample(){
+    var qTextArea = document.getElementById('pasteQuestionT');
+    qTextArea.value = "What is a banana?\n\nBlack\nWhite\nBlue\nYellow";
+}
+function generateQPaste(){
+    var ansCount = 0;
+    const ansOptElements = document.querySelectorAll('.ansOpt').length;
+    const cnt = ansOptElements + 1;
+    var qTextArea = document.getElementById('pasteQuestionT');
+    var qTextContent = qTextArea.value.trim();
+    var lines = qTextContent.split('\n');
+    var question = lines[0];
+    var answers = lines.slice(1);
+    //process questions
+    answers.forEach(ans =>{
+        if(!isspace(ans)){
+            const ansOptId = generateUUID();
+            const ansOptHTML = `
+                                    <div class="ansOpt" id="${ansOptId}">${ans}
+                                    <div class="switch-container">
+                                                       <label class="switch">
+                                                           <input type="checkbox" class='question-validity' ansOptCheck-ref-id="${ansOptId}" onchange="validateQuestion('${ansOptId}');">
+                                                           <span class="slider" data-ans-isCorrect-id="${ansOptId}"></span>
+                                                       </label>
+                                                       <label class="switch-label">Incorrect</label>
+                                     </div>
+                                     <span class="ansNumber">${cnt}</span>
+                                    <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑Delete</button>
+                                    </div>
+                                `;
+                                document.getElementById('ansOptDiv').insertAdjacentHTML('beforeend', ansOptHTML);
+             //add div to preview div
+            var previewAnsDiv = $('#previewAOptsDiv');
+            //create preview answer element
+            const previewAnsOptHTML = `
+                <div id="${ansOptId}prevA">
+                <input type="checkbox">${ans}
+                </div>
+            `
+            document.getElementById('previewAOptsDiv').insertAdjacentHTML('beforeend', previewAnsOptHTML);
+        }
+    });
+}
+
+function isspace(str){
+    return /^\s*$/.test(str);
+}
+
+function addTag(){
+    var TagValue = document.getElementById('tagValue').value.trim();
+    var addTagElem =document.createElement('div');
+    addTagElem.id ="add-tag";
+    addTagElem.classList.add('add-tag')
+    var addTagContent = document.createElement('p');
+    addTagContent.innerText = TagValue;
+    var delBtn = document.createElement('i');
+    delBtn.classList.add('fas', 'fa-times', 'deleteTagBtn');
+    delBtn.addEventListener('click', function(){
+        addTagElem.parentNode.removeChild(addTagElem);
+    });
+    addTagContent.appendChild(delBtn);
+    addTagElem.appendChild(addTagContent);
+
+    document.getElementById('addedTags').appendChild(addTagElem);
+}
+
+/*
+json schema
+
+*/

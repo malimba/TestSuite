@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from users.models import User
 # Questions model
 class Questions(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
@@ -28,3 +29,14 @@ class Answers(models.Model):
 
     def __str__(self):
         return self.answer_text
+
+#folders model
+class Folders(models.Model):
+    id = models.AutoField(blank=False, null=False, primary_key=True)
+    folder_name = models.CharField(max_length=75, blank=False, null=False)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.folder_name
+
+#create tag model =-> include tag value
