@@ -53,6 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Selected Value:', selectedValue);
         }
     });
+    const jsonDropdownCaret = document.getElementsByClassName("dropdownCaret");
+    var i;
+
+    for (i = 0; i < jsonDropdownCaret.length; i++) {
+      jsonDropdownCaret[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
 });
 document.addEventListener('DOMContentLoaded', function () {
     const dropdownButton = document.getElementById('customDropdownButton2');
@@ -435,6 +444,7 @@ function generateQPaste(){
             document.getElementById('previewAOptsDiv').insertAdjacentHTML('beforeend', previewAnsOptHTML);
         }
     });
+    $('#qSummernote').summernote('code', question);
 }
 
 function isspace(str){

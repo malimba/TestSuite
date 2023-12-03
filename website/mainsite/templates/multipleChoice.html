@@ -4,7 +4,7 @@
 
 {% block headlinks %}
 <link href="{% static 'css/question_test_styles.css' %}" rel="stylesheet">
-<script type="text/javascript" src="{% static 'js/question_test_javascript.js' %}"></script>
+<script src="{% static 'js/question_test_javascript.js' %}" type="text/javascript"></script>
 
 {% endblock headlinks %}
 
@@ -18,7 +18,7 @@ Home
 
 {% block body %}
 
-<div id="summernoteContainer" class="editor-container">
+<div class="editor-container" id="summernoteContainer">
     <div class="header">
         <div class="tabs">
             <div class="tab" id="qTab" onclick="toggleTab(this)"> Question</div>
@@ -38,7 +38,7 @@ Home
             <ul class="sub-header-ul">
                 <li class="sub-header-li"><h4>Question</h4></li>
                 <li class="sub-header-li">
-                    <input class="" type="checkbox" name="extrAns" id="extrAns">Extract Answer
+                    <input class="" id="extrAns" name="extrAns" type="checkbox">Extract Answer
                 </li>
                 <li class="sub-header-li">
                     <div class="input-container">
@@ -48,19 +48,19 @@ Home
 
                 </li>
                 <li class="sub-header-li">
-                    <input type="checkbox" name="sideBarEnbl" id="sideBarEnbl" onchange="showDiv('sBDiv');">Sidebar
+                    <input id="sideBarEnbl" name="sideBarEnbl" onchange="showDiv('sBDiv');" type="checkbox">Sidebar
                 </li>
                 <li class="sub-header-li">
-                    <input type="checkbox" name="hintEnbl" id="hintEnbl" onchange="showDiv('hintDiv');">Hint
+                    <input id="hintEnbl" name="hintEnbl" onchange="showDiv('hintDiv');" type="checkbox">Hint
                 </li>
                 <li class="sub-header-li">
-                    <input type="checkbox" name="fdbckEnbl" id="fdbckEnbl" onchange="showDiv('fdbackDiv');">Feedback
+                    <input id="fdbckEnbl" name="fdbckEnbl" onchange="showDiv('fdbackDiv');" type="checkbox">Feedback
                 </li>
                 <li class="sub-header-li">
                     <div class="switch-container">
 
                         <label class="switch">
-                            <input type="checkbox" onchange="togglePreviewVisibility();">
+                            <input onchange="togglePreviewVisibility();" type="checkbox">
                             <span class="slider"></span>
                         </label>
                         <label class="switch-label">Preview</label>
@@ -74,18 +74,18 @@ Home
             </form>
         </div>
 
-        <div id="sBDiv" class="hDiv">
+        <div class="hDiv" id="sBDiv">
             <h4>Sidebar</h4>
-            <textarea name="sBDivSummernote" id="sBDivSummernote"></textarea>
+            <textarea id="sBDivSummernote" name="sBDivSummernote"></textarea>
         </div>
-        <div id="hintDiv" class="hDiv">
+        <div class="hDiv" id="hintDiv">
             <h4>Hint</h4>
-            <input type="text" id="hintTitle" name="hintTitle" placeholder="Title"><textarea name="hintDivSummernote"
-                                                                                             id="hintDivSummernote"></textarea>
+            <input id="hintTitle" name="hintTitle" placeholder="Title" type="text"><textarea id="hintDivSummernote"
+                                                                                             name="hintDivSummernote"></textarea>
         </div>
-        <div id="fdbackDiv" class="hDiv">
+        <div class="hDiv" id="fdbackDiv">
             <h4>Feedback</h4>
-            <textarea name="fdbackDivSummernote" id="fdbackDivSummernote"></textarea>
+            <textarea id="fdbackDivSummernote" name="fdbackDivSummernote"></textarea>
         </div>
         <div id="ansOptDiv">
         </div>
@@ -94,7 +94,7 @@ Home
             <h6>Answers</h6>
             <ul class="sub-header-ul">
                 <li class="sub-header-li">
-                    <input type="checkbox" name="sfC" id="sfC">Shuffle Choices
+                    <input id="sfC" name="sfC" type="checkbox">Shuffle Choices
                 </li>
                 <li class="sub-header-li">
                     <div class="input-container">
@@ -104,11 +104,11 @@ Home
                 </li>
                 <li class="sub-header-li">
                     <div class="custom-dropdown">
-                        <button class="dropdown-toggle" id="customDropdownButton" aria-haspopup="true"
-                                aria-expanded="false">
+                        <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
+                                id="customDropdownButton">
                             <span id="minSelectionText">Min Selection</span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="customDropdownButton">
+                        <div aria-labelledby="customDropdownButton" class="dropdown-menu">
                             <button class="dropdown-item" data-value="0">0</button>
                             <!--more drop down items go here-->
                         </div>
@@ -116,11 +116,11 @@ Home
                 </li>
                 <li class="sub-header-li">
                     <div class="custom-dropdown">
-                        <button class="dropdown-toggle" id="customDropdownButton2" aria-haspopup="true"
-                                aria-expanded="false">
+                        <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
+                                id="customDropdownButton2">
                             <span id="maxSelectionText">Max Selection</span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="customDropdownButton">
+                        <div aria-labelledby="customDropdownButton" class="dropdown-menu">
                             <button class="dropdown-item" data-value="0">0</button>
                             <!--more drop down items go here-->
                         </div>
@@ -187,8 +187,9 @@ Home
     <div class="func-div " id="pasteDiv">
         <div class="grid-container">
             <div class="grid-child textarea-container">
-            <textarea name="pastQuestionT" id="pasteQuestionT" cols="30" rows="10" class="pasteQT"
-                      placeholder="Paste or quickly write your question. Leave blank line after the question"></textarea>
+            <textarea class="pasteQT" cols="30" id="pasteQuestionT" name="pastQuestionT"
+                      placeholder="Paste or quickly write your question. Leave blank line after the question"
+                      rows="10"></textarea>
             </div>
             <div class="grid-child example-container">
                 <div style="padding: 20px; border: 1px solid rgb(221, 221, 221); background: rgb(238, 238, 238); margin-bottom: 29px;">
@@ -199,8 +200,8 @@ Home
                     <div style="color: grey; font-style: italic; margin-bottom: 25px;">
                         What color is a banana?<br><br> Black<br> White<br> Blue<br> Yellow
                     </div>
-                    <button type="button" class="v-btn v-btn--small theme--light" style="margin-left: 0px;"
-                            onclick="useExample();">
+                    <button class="v-btn v-btn--small theme--light" onclick="useExample();" style="margin-left: 0px;"
+                            type="button">
                         <div class="v-btn__content">Use this example</div>
                     </button>
                 </div>
@@ -224,15 +225,15 @@ Home
         </div>
     </div>
     <div class="func-div" id="fldrDiv">
-        <div id="folderDiv" class="input-container">
+        <div class="input-container" id="folderDiv">
             <select class="dropdown-elem" id="fldrDrpDwn" name="fldrDrpDwn">
             </select>
             <label class="label" for="fldrDrpDwn">Folder</label>
         </div>
 
         <div id="tagDiv">
-            <div id="addedTags"><i id="aTag" class="fas fa-tag"></i></div>
-            <div id="tagDropDownDiv" class="input-container">
+            <div id="addedTags"><i class="fas fa-tag" id="aTag"></i></div>
+            <div class="input-container" id="tagDropDownDiv">
                 <select class="dropdown-elem" id="tagDrpDwn" name="tagDrpDwn">
                 </select>
                 <label class="label" for="tagDrpDwn">Tag Name</label>
@@ -243,10 +244,34 @@ Home
             </div>
         </div>
         <div id="addTagDiv">
-            <button class="btn btn-warning"  onclick="addTag();">+Add Tag</button>
+            <button class="btn btn-warning" onclick="addTag();">+Add Tag</button>
         </div>
     </div>
-    <div class="func-div" id="jsonDiv"></div>
+    <div class="func-div" id="jsonDiv">
+        <ul id="myUL">
+            <li><span class="caret">Beverages</span>
+                <ul class="nested">
+                    <li>Water</li>
+                    <li>Coffee</li>
+                    <li><span class="caret">Tea</span>
+                        <ul class="nested">
+                            <li>Black Tea</li>
+                            <li>White Tea</li>
+                            <li><span class="caret">Green Tea</span>
+                                <ul class="nested">
+                                    <li>Sencha</li>
+                                    <li>Gyokuro</li>
+                                    <li>Matcha</li>
+                                    <li>Pi Lo Chun</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
     <div class="func-div" id="previewDiv">
         <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
         <div id="previewQTitleDiv">
