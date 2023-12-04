@@ -25,8 +25,9 @@ function toggleTab(tab) {
 }
 
     document.addEventListener("DOMContentLoaded", function () {
+        //for min select
         var dropdownButton = document.getElementById("customDropdownButton");
-        var dropdownMenu = document.querySelector(".custom-dropdown .dropdown-menu");
+        var dropdownMenu = document.querySelectorAll(".custom-dropdown .dropdown-menu")[0];
 
         dropdownButton.addEventListener("click", function () {
             dropdownMenu.classList.toggle("show-options");
@@ -37,22 +38,24 @@ function toggleTab(tab) {
                 dropdownMenu.classList.remove("show-options");
             }
         });
+        //for max select
+        var dropdownButton2 = document.getElementById("customDropdownButton2");
+        var dropdownMenu2 = document.querySelectorAll(".custom-dropdown .dropdown-menu")[1];
+
+        dropdownButton2.addEventListener("click", function () {
+            dropdownMenu2.classList.toggle("show-options");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!event.target.matches("#customDropdownButton2")) {
+                dropdownMenu2.classList.remove("show-options");
+            }
+        });
     });
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
-    const dropdownButton = document.getElementById('customDropdownButton');
-    const dropdownMenu = document.querySelector('.custom-dropdown .dropdown-menu');
-
-    const minSelectionText = document.getElementById('minSelectionText');
-
-    dropdownMenu.addEventListener('click', function (event) {
-        if (event.target.classList.contains('dropdown-item')) {
-            minSelectionText.textContent = event.target.textContent;
-
-            const selectedValue = event.target.getAttribute('data-value');
-            console.log('Selected Value:', selectedValue);
-        }
-    });
     const jsonDropdownCaret = document.getElementsByClassName("caret");
     var i;
 
@@ -64,17 +67,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 document.addEventListener('DOMContentLoaded', function () {
-    const dropdownButton = document.getElementById('customDropdownButton2');
-    const dropdownMenu = document.querySelector('.custom-dropdown .dropdown-menu');
-
-    const minSelectionText = document.getElementById('maxSelectionText');
+    const dropdownButton = document.getElementById('customDropdownButton');
+    const minSelectionText = document.getElementById('minSelectionText');
+    const dropdownMenu = document.getElementById('minSelDrpDwn');
 
     dropdownMenu.addEventListener('click', function (event) {
         if (event.target.classList.contains('dropdown-item')) {
             minSelectionText.textContent = event.target.textContent;
-
             const selectedValue = event.target.getAttribute('data-value');
-            console.log('Selected Value:', selectedValue);
+            console.log('Min Selection:', selectedValue);
+        }
+    });
+
+    const dropdownButton2 = document.getElementById('customDropdownButton2');
+    const maxSelectionText = document.getElementById('maxSelectionText');
+    const dropdownMenu2 = document.getElementById('maxSelDrpDwn');
+
+    dropdownMenu2.addEventListener('click', function (event) {
+        if (event.target.classList.contains('dropdown-item')) {
+            maxSelectionText.textContent = event.target.textContent;
+            const selectedValue = event.target.getAttribute('data-value');
+            console.log('Max Selection:', selectedValue);
         }
     });
 });
@@ -92,7 +105,93 @@ document.addEventListener('DOMContentLoaded', function(){
 function updateHintT(this_){
     document.getElementById('hintTitleDrp').innerText = this_.value;
 }
+//initiate json
+document.addEventListener('DOMContentLoaded', function(){
+    const jsonData = {
+            "root": {
+                "ask": {
+                    "content": {
+                        "kind": "rich",
+                        "html": ""
+                    },
+                    "modal": null,
+                    "name": null,
+                    "extractAnswer": false
+                },
+                "sidebar": {
+                    "kind": "sidebar",
+                    "active": false,
+                    "content": {
+                        "kind": "rich",
+                        "html": ""
+                    },
+                    "position": "left"
+                },
+                "directory": {
+                    "folder": "My questions",
+                    "tags": {
+                        "deleted": false
+                    },
+                    "scoring": {
+                        "scoreTags": {
+                            "positive": 1,
+                            "negative": 0
+                        },
+                        "feedback": {
+                            "kind": "rich",
+                            "html": ""
+                        },
+                        "modal": null,
+                        "copyOf": false
+                    },
+                    "kind": "multiplechoice",
+                    "multipleChoice": {
+                        "choices": {
+                            "maxSelection": 1,
+                            "minSelection": 1,
+                            "shuffle": false,
+                            "threshold": 0,
+                            "effect": false
+                        },
+                        "display": {
+                            "kind": "flex",
+                            "direction": "column",
+                            "wrap": "wrap",
+                            "justifyItems": "start",
+                            "justifyContent": "flex-start",
+                            "alignItems": "flex-start",
+                            "alignContent": "flex-start",
+                            "margin": "0px",
+                            "padding": "0px"
+                        }
+                    }
+                }
+            }
+        };
+    document.addEventListener('click', updateJson());
+});
 
+function updateJson(){
+    //checks for status of enable buttons
+    const etxractAnswerStatus = document.getElementById('extrAns').checked;
+    const sideBarStatus = document.getElementById('sideBarEnbl').checked;
+    const hintStatus = document.getElementById('hintEnbl').checked;
+    const feedbackStatus = document.getElementById('fdbckEnbl').checked;
+    const shufflechoicesStatus = document.getElementById('sfC').checked;
+    //content items => inputs
+    const reportNameContent = document.getElementById('rprtName').value;
+    const thresholdContent = document.getElementById('threshold').value;//todo: put check to enable threshold is number
+    const minSelection = document.getElementById('customDropdownButton').innerText;
+    const maxSelection = document.getElementById('customDropdownButton2').innerText;
+    const questionContent = $('#qSummernote').summernote('code');
+    const sidebarContent = $("#sBDivSummernote").summernote('code');
+    const hintTitle = document.getElementById('hintTitle').value;
+    const hintContent = $("#hintDivSummernote").summernote('code');
+    const feedbackContent = $("#fdbackDivSummernote").summernote('code');
+    const answersArray = document.querySelectorAll(".ansOpt");
+    //styling attributes
+
+};
 function generateUUID(){
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
         var r = (Math.random() * 16) | 0,
@@ -131,11 +230,24 @@ function addAnswer() {
         </div>
     `
     document.getElementById('previewAOptsDiv').insertAdjacentHTML('beforeend', previewAnsOptHTML);
-    //for display preview
-
+    //for min max select options
+    const minSelOptDiv = document.getElementById("minSelDrpDwn");
+    const maxSelOptDiv = document.getElementById('maxSelDrpDwn');
+    //clear all existing options
+    minSelOptDiv.innerHTML = '';
+    maxSelOptDiv.innerHTML = '';
+    for(i=0; i<cnt; i++){
+        const newOption = `
+                             <button class="dropdown-item" data-value="${i+1}">${i+1}</button>
+                           `;
+        minSelOptDiv.insertAdjacentHTML('beforeend', newOption);
+        maxSelOptDiv.insertAdjacentHTML('beforeend', newOption);
+   };
 }
 
 function deleteAnsOpt(deleteButton){
+    const ansOptElements = document.querySelectorAll('.ansOpt').length;
+    const cnt = ansOptElements + 1;
     const ansOptId = deleteButton.getAttribute('data-ans-opt-id');
     const ansOptElement = document.getElementById(ansOptId);
     const ansOptPreviewObject = document.getElementById(`${ansOptId}prevA`);
@@ -144,6 +256,19 @@ function deleteAnsOpt(deleteButton){
 
     ansOptPreviewObject.remove();
     ansOptElement.remove();
+    //for min max select options
+    const minSelOptDiv = document.getElementById("minSelDrpDwn");
+    const maxSelOptDiv = document.getElementById('maxSelDrpDwn');
+    //clear all existing options
+    minSelOptDiv.innerHTML = '';
+    maxSelOptDiv.innerHTML = '';
+    for(i=0; i<cnt; i++){
+        const newOption = `
+                             <button class="dropdown-item" data-value="${i+1}">${i+1}</button>
+                           `;
+        minSelOptDiv.insertAdjacentHTML('beforeend', newOption);
+        maxSelOptDiv.insertAdjacentHTML('beforeend', newOption);
+   };
 };
 
 function validateQuestion(ansOptContainerId) {
@@ -458,6 +583,19 @@ function generateQPaste(){
         }
     });
     $('#qSummernote').summernote('code', question);
+    //for min max select options
+    const minSelOptDiv = document.getElementById("minSelDrpDwn");
+    const maxSelOptDiv = document.getElementById('maxSelDrpDwn');
+    //clear all existing options
+    minSelOptDiv.innerHTML = '';
+    maxSelOptDiv.innerHTML = '';
+    for(i=0; i<cnt; i++){
+        const newOption = `
+                             <button class="dropdown-item" data-value="${i+1}">${i+1}</button>
+                           `;
+        minSelOptDiv.insertAdjacentHTML('beforeend', newOption);
+        maxSelOptDiv.insertAdjacentHTML('beforeend', newOption);
+   };
 }
 
 function isspace(str){

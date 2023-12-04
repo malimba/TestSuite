@@ -111,7 +111,7 @@ Home
                 </li>
                 <li class="sub-header-li">
                     <div class="input-container">
-                        <textarea class="editable-text" id="threshold" placeholder=""></textarea>%
+                        <textarea class="editable-text" id="threshold" pattern="[0-9]*"></textarea>%
                         <label class="label" for="threshold">Threshold</label>
                     </div>
                 </li>
@@ -121,9 +121,8 @@ Home
                                 id="customDropdownButton">
                             <span id="minSelectionText">Min Selection</span>
                         </button>
-                        <div aria-labelledby="customDropdownButton" class="dropdown-menu">
-                            <button class="dropdown-item" data-value="0">0</button>
-                            <!--more drop down items go here-->
+                        <div aria-labelledby="customDropdownButton" id="minSelDrpDwn" class="dropdown-menu">
+                            <!-- drop down items go here-->
                         </div>
                     </div>
                 </li>
@@ -133,9 +132,8 @@ Home
                                 id="customDropdownButton2">
                             <span id="maxSelectionText">Max Selection</span>
                         </button>
-                        <div aria-labelledby="customDropdownButton" class="dropdown-menu">
-                            <button class="dropdown-item" data-value="0">0</button>
-                            <!--more drop down items go here-->
+                        <div aria-labelledby="customDropdownButton2" id="maxSelDrpDwn" class="dropdown-menu">
+                            <!-- drop down items go here-->
                         </div>
                     </div>
                 </li>
