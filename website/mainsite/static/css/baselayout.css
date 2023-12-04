@@ -278,7 +278,9 @@ a:hover{
 }
 
 .grid-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
 }
 
 .textarea-container {
@@ -289,7 +291,12 @@ a:hover{
     flex: 1;
     margin-left: 20px;
 }
-
+.sidebar-container{
+    flex:1;
+}
+.main-container{
+    flex:2;
+}
 .grid-child-e{
     flex:1;
 }

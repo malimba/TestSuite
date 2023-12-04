@@ -76,12 +76,24 @@ Home
         </div>
 
         <div class="hDiv" id="sBDiv">
-            <h4>Sidebar</h4>
+            <ul class="sub-header-ul">
+                <li class="sub-header-li">
+                    <h4>Sidebar</h4>
+                </li>
+                <li class="sub-header-li">
+                    <div class="input-container">
+                        <select id="sidebarPosToggler" class="editable-text" onchange="swapPos();">
+                            <option value="left">Left</option>
+                            <option value="right">Right</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
             <textarea id="sBDivSummernote" name="sBDivSummernote"></textarea>
         </div>
         <div class="hDiv" id="hintDiv">
             <h4>Hint</h4>
-            <input id="hintTitle" name="hintTitle" placeholder="Title" type="text"><textarea id="hintDivSummernote"
+            <input id="hintTitle" name="hintTitle" placeholder="Title" type="text" onkeyup="updateHintT(this);"><textarea id="hintDivSummernote"
                                                                                              name="hintDivSummernote"></textarea>
         </div>
         <div class="hDiv" id="fdbackDiv">
@@ -250,7 +262,7 @@ Home
     </div>
     <div class="func-div" id="jsonDiv">
         <ul id="myUL">
-            <li><span class="caret">Beverages</span>
+            <li><span class="caret">root</span>
                 <ul class="nested">
                     <li>Water</li>
                     <li>Coffee</li>
@@ -274,12 +286,29 @@ Home
 
     </div>
     <div class="func-div" id="previewDiv">
-        <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b></h4>
-        <div id="previewQTitleDiv">
-            <h4 id="previewQTitle"></h4>
-        </div>
-        <div id="previewAOptsDiv">
+        <h4 style="text-align:center; justify-content:center; margin:0 auto;padding-top:20px;"><b>Preview</b>
+        </h4>
+        <div class="grid-container">
+            <div id="sidebarDiv" class="grid-child sidebar-conatiner inactive-disp-elem">
+                <h4 id="sidebarCnt"></h4>
+            </div>
+            <div id="main-preview" class="grid-child main-container">
+                <div id="previewQTitleDiv">
+                    <h4 id="previewQTitle"></h4>
+                </div>
+                <div id="previewHintDiv" class="inactive-disp-elem">
+                    <ul>
+                        <li><span class="caret" id="hintTitleDrp">hint</span>
+                            <ul class="nested">
+                                <li id="hintCnt"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="previewAOptsDiv">
 
+                </div>
+            </div>
         </div>
     </div>
 </div>

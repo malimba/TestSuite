@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Selected Value:', selectedValue);
         }
     });
-    const jsonDropdownCaret = document.getElementsByClassName("dropdownCaret");
+    const jsonDropdownCaret = document.getElementsByClassName("caret");
     var i;
 
     for (i = 0; i < jsonDropdownCaret.length; i++) {
@@ -78,7 +78,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
+//add listener to sidebar enabled checkbox
+document.addEventListener('DOMContentLoaded', function(){
+    const sidebarCheckbox = document.getElementById('sideBarEnbl');
+    const hintCheckbox = document.getElementById('hintEnbl');
+    sidebarCheckbox.addEventListener('change', function(){
+        document.getElementById('sidebarDiv').classList.toggle('inactive-disp-elem');
+    });
+    hintCheckbox.addEventListener('change', function(){
+        document.getElementById('previewHintDiv').classList.toggle('inactive-disp-elem');
+    });
+});
+function updateHintT(this_){
+    document.getElementById('hintTitleDrp').innerText = this_.value;
+}
 
 function generateUUID(){
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
@@ -156,8 +169,8 @@ function validateQuestion(ansOptContainerId) {
 }
 
 function showDiv(div_){
-    const cdiv = document.getElementById(`${div_}`);
-    cdiv.classList.toggle('active');
+        const cdiv = document.getElementById(`${div_}`);
+        cdiv.classList.toggle('active');
 }
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -467,6 +480,15 @@ function addTag(){
     addTagElem.appendChild(addTagContent);
 
     document.getElementById('addedTags').appendChild(addTagElem);
+}
+//for sidebar position
+function swapPos(){
+    var sideBarDiv = document.getElementById('sidebarDiv');
+    var mainContentDiv = document.getElementById('main-preview');
+    var margin1 = window.getComputedStyle(sideBarDiv).marginRight;
+    var margin2 = window.getComputedStyle(mainContentDiv).marginRight;
+    sideBarDiv.style.marginRight = margin2;
+    mainContentDiv.style.marginRight = margin1;
 }
 
 /*
