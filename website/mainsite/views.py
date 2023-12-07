@@ -19,3 +19,8 @@ def Home(request):
 def MCQuestionView(request):
     if request.method == 'GET':
         return render(request, 'multipleChoice.html')
+
+#input question handler
+def InpQuestionView(request):
+    if request.method == 'GET':
+        return render(request, 'inputchoice.html')
