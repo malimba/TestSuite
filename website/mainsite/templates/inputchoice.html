@@ -18,15 +18,15 @@ Home
 {% endblock navlinks %}
 
 {% block body %}
-<h2 id="kind" style="display:none;">multiplechoice</h2>
+<h2 id="kind" style="display:none;">inputchoice</h2>
 <div class="editor-container" id="summernoteContainer">
     <div class="header">
         <div class="tabs">
             <div class="tab" id="qTab" onclick="toggleTab(this)"> Question</div>
-            <div class="tab" id="dispTab" onclick="toggleTab(this)">Display</div>
-            <div class="tab" id="pasteTab" onclick="toggleTab(this)">Paste</div>
+            <div class="tab" id="ansTab" onclick="toggleTab(this)">Answer</div>
             <div class="tab" id="scoreTab" onclick="toggleTab(this)">Scoring</div>
             <div class="tab" id="fldrTab" onclick="toggleTab(this)">Folder</div>
+            <div class="tab" id="rbcTab" onclick="toggleTab(this)">Rubric</div>
             <div class="tab" id="jsonTab" onclick="toggleTab(this)">JSON</div>
 
         </div>
@@ -101,102 +101,41 @@ Home
             <h4>Feedback</h4>
             <textarea id="fdbackDivSummernote" name="fdbackDivSummernote"></textarea>
         </div>
-        <div id="ansOptDiv">
-        </div>
-
-        <div id="ansDiv">
-            <h6>Answers</h6>
-            <ul class="sub-header-ul">
-                <li class="sub-header-li">
-                    <input id="sfC" name="sfC" type="checkbox">Shuffle Choices
-                </li>
-                <li class="sub-header-li">
-                    <div class="input-container">
-                        <textarea class="editable-text" id="threshold" pattern="[0-9]*"></textarea>%
-                        <label class="label" for="threshold">Threshold</label>
-                    </div>
-                </li>
-                <li class="sub-header-li">
-                    <div class="custom-dropdown">
-                        <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
-                                id="customDropdownButton">
-                            <span id="minSelectionText">Min Selection</span>
-                        </button>
-                        <div aria-labelledby="customDropdownButton" id="minSelDrpDwn" class="dropdown-menu">
-                            <!-- drop down items go here-->
-                        </div>
-                    </div>
-                </li>
-                <li class="sub-header-li">
-                    <div class="custom-dropdown">
-                        <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
-                                id="customDropdownButton2">
-                            <span id="maxSelectionText">Max Selection</span>
-                        </button>
-                        <div aria-labelledby="customDropdownButton2" id="maxSelDrpDwn" class="dropdown-menu">
-                            <!-- drop down items go here-->
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="ansInpDiv">
-            <textarea class="ansSummernote"></textarea>
-            <div class="saveBtnDiv">
-                <button class="btn btn-warning " onclick="addAnswer();">Add Answer</button>
+        <div>
+            <input type="checkbox" name="evalNote" id="evalNote" onchange="evalRShow();">Note for evaluator
+            <div class="func-div" id="evalNoteDiv">
+                <textarea id="evalNoteSummernote" name="evalNoteSummernote"></textarea>
             </div>
         </div>
     </div>
 
-    <div class="func-div" id="dispDiv">
-        <!--        direction, wrapping, justify content, align items, margin-->
-        <label for="dispType"><small>Display Type</small></label>
-        <select id="dispType">
-            <option value="flex">Flex</option>
-            <option value="dropdown">Dropdown</option>
-            <option value="grid">Grid</option>
-        </select>
-        <label for="directionType"><small>Direction Type</small></label>
-        <select id="directionType">
-            <option value="column">Column</option>
-            <option value="row">Row</option>
-        </select>
-        <label for="wrappingType"><small>Wrapping</small></label>
-        <select id="wrappingType">
-            <option value="normal">Wrap</option>
-            <option value="nowrap">No wrap</option>
-        </select>
-        <label for="justifyCntType"><small>Justify Content</small></label>
-        <select id="justifyCntType">
-            <option value="flex-start">Start</option>
-            <option value="flex-end">End</option>
-            <option value="center">Center</option>
-            <option value="space-between">Space Between</option>
-            <option value="space-around">Space Around</option>
-            <option value="space-evenly">Space Evenly</option>
-        </select>
-        <label for="algnItmsType"><small>Align Items</small></label>
-        <select id="algnItmsType">
-            <option value="start">Start</option>
-            <option value="end">End</option>
-            <option value="center">Center</option>
-            <option value="stretch">Stretch</option>
-            <option value="baseline">Baseline</option>
-        </select>
-        <label for="marginType"><small>Margin</small></label>
-        <select id="marginType">
-            <option value="none">None</option>
-            <option value="5">5px</option>
-            <option value="10">10px</option>
-            <option value="15">15px</option>
-            <option value="20">20px</option>
-            <option value="25">25px</option>
-            <option value="30">30px</option>
-            <option value="35">35px</option>
-            <option value="40">40px</option>
-        </select>
+    <div class="func-div" id="ansDiv">
+        <div class="input-container" id="inputTypeDiv">
+            <label class="label" for="inputTypeDrpDwn">Input Type</label>
+            <br>
+            <select class="dropdown-elem" id="inputTypeDrpDwn" name="inputTypeDrpDwn">
+                <option value="txtField">Text Field</option>
+                <option value="txtArea">Text Area</option>
+                <option value="numVal">Numeric</option>
+                <option value="rchTxtField">Rich Text Editor</option>
+                <option value="audioRec">Audio Recorder</option>
+                <option value="videoRec">Video Recorder</option>
+            </select>
+
+        </div>
+        <div id="txtFieldSettings" class="">
+            <h6><b><span><i class="fa-solid fa-gear"></i></span>Settings</b></h6>
+            <div class="settingsOpts">
+                <input type="text" name="" id="" placeholder="here">Hello
+            </div>
+        </div>
+        <div id="txtAreaSettings"></div>
+        <div id="numValSettings"></div>
+        <div id="rchTxtFieldSettings"></div>
+        <div id="audioRecSettings"></div>
+        <div id="videoRecSettings"></div>
     </div>
-    <div class="func-div " id="pasteDiv">
+    <div class="func-div " id="rbcDiv">
         <div class="grid-container">
             <div class="grid-child textarea-container">
             <textarea class="pasteQT" cols="30" id="pasteQuestionT" name="pastQuestionT"

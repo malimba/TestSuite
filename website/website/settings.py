@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'djrichtextfield',
     'django_summernote',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [
