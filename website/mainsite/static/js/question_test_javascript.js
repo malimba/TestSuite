@@ -1,4 +1,3 @@
-
 function toggleTab(tab) {
   const tabs = document.querySelectorAll('.tab');
   tabs.forEach(t => t.classList.remove('active'));
@@ -363,7 +362,8 @@ function addAnswer() {
                         <label class="switch-label">Incorrect</label>
       </div>
       <span class="ansNumber">${cnt}</span>
-     <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑Delete</button>
+      <button class="btn btn-primary " data-ans-opt-id="${ansOptId}" onclick="editAnsOpt(this)"><i class="fa-solid fa-pencil"></i></button>
+     <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)"><i class="fa fa-trash" aria-hidden="true"></i></button>
     `;
     document.getElementById('ansOptDiv').insertAdjacentHTML('beforeend', ansOptHTML);
     //add div to preview div
@@ -393,8 +393,8 @@ function addAnswer() {
    updateJsonChoices();
 }
 function updateJsonChoices() {
+    console.log(jsonData);
     const choicesArray = jsonData.root.directory.multipleChoice.choices;
-
     const jsonChoicesDiv = document.getElementById('choicesUl');
     jsonChoicesDiv.innerHTML = ''; // Clear existing content
 
@@ -440,7 +440,7 @@ function attachDropdownEventListeners(container) {
 }
 
 // Call the function to update choices and attach event listeners
-updateJsonChoices();
+//updateJsonChoices();
 
 function deleteAnsOpt(deleteButton){
     const ansOptElements = document.querySelectorAll('.ansOpt').length;
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 };
                 if (directionType === 'row'){
                     checkboxes.forEach(checkbox => {
-                    checkbox.parentElement.parentElement.style.display = displayType;
+                    checkbox.parentElement.parentElement.style.display = 'inline-block';
                     checkbox.parentElement.style.display = 'inline-block';
                     checkbox.parentElement.style.flexWrap = wrappingType;
                     checkbox.parentElement.parentElement.style.justifyContent = justifyCntType;
@@ -766,7 +766,8 @@ function generateQPaste(){
                                                        <label class="switch-label">Incorrect</label>
                                      </div>
                                      <span class="ansNumber">${cnt}</span>
-                                    <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)">🗑Delete</button>
+                                     <button class="btn btn-primary " data-ans-opt-id="${ansOptId}" onclick="editAnsOpt(this)"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="btn btn-danger deleteAnsOpt" data-ans-opt-id="${ansOptId}" onclick="deleteAnsOpt(this)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                     </div>
                                 `;
                                 document.getElementById('ansOptDiv').insertAdjacentHTML('beforeend', ansOptHTML);
@@ -834,3 +835,7 @@ function swapPos(){
 json schema
 
 */
+
+function editAnsOpt(opt){
+
+}
